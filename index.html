@@ -53,14 +53,16 @@
 
         document.getElementById('tg').addEventListener('submit', function (e){
             e.preventDefault();
-            let message = {};
-            message['country'] = this.country.value;
-            message['city'] = this.city.value;
-            message['restaurant_name'] = this.restaurant_name.value;
-            message['party_size'] = this.party_size.value;
-            message['date'] = this.date.value;
-            message['time'] = this.time.value;
+            let message = '';
+            message += this.country.value + '\n';
+            message += this.city.value + '\n';
+            message += this.restaurant_name.value + '\n';
+            message += this.party_size.value + '\n';
+            message += this.date.value + '\n';
+            message += this.time.value + '\n';
+            console.log(message);
             Telegram.WebApp.sendData(message);
+            Telegram.WebApp.close();
         })
     </script>
     </body>
