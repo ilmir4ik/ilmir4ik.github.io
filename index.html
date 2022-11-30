@@ -50,14 +50,16 @@
     </div>
     <script>
         let init_data = Telegram.WebApp.initDataUnsafe || {};
-        console.log(init_data)
 
         document.getElementById('tg').addEventListener('submit', function (e){
             e.preventDefault();
-            let message = ``;
-            message += `Страна: ${this.country.value}\n`;
-            message += `Город: ${this.city.value}\n`;
-            message += `Название ресторана: ${this.restaurant_name.value}`;
+            let message = {};
+            message['country'] = this.country.value;
+            message['city'] = this.city.value;
+            message['restaurant_name'] = this.restaurant_name.value;
+            message['party_size'] = this.party_size.value;
+            message['date'] = this.date.value;
+            message['time'] = this.time.value;
             Telegram.WebApp.sendData(message);
         })
     </script>
