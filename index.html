@@ -7,7 +7,7 @@
     <title>Title</title>
 </head>
 <body>
-<div class="col-md-4">
+<div align="center" class="container col-md-4 mt-4 pb-4">
     <form id="tg">
         <div>
             <label class="form-label">Введите страну</label>
@@ -21,9 +21,9 @@
             <label class="form-label">Введите название ресторана</label>
             <input type="text" class="form-control" id="restaurant_name">
         </div>
-        <div class="w-50">
+        <div class="">
             <label>Сколько вас будет человек?</label>
-            <select class="form-select" name="party_size">
+            <select class="form-select w-50" name="party_size">
                 <option value=1>1</option>
                 <option value=2>2</option>
                 <option value=3>3</option>
@@ -34,16 +34,16 @@
                 <option value=8>8</option>
             </select>
         </div>
-        <div class="w-50">
+        <div>
             <label class="form-label">Выберите дату бронирования</label>
-            <input class="form-control md-3" type="date" name="date" id="date" required>
+            <input class="form-control w-50" type="date" name="date" id="date" required>
         </div>
-        <div class="w-50">
+        <div>
             <label class="form-label">Введите время бронирования</label>
-            <input class="form-control" type="time" name="time" id="time" required>
+            <input class="form-control w-50" type="time" name="time" id="time" required>
         </div>
-        <div class="offset-md-4 mt-4">
-            <button class="btn btn-primary col-md-6" type="submit">Подтвердить</button>
+        <div>
+            <button class="btn btn-primary w-50 mt-4" type="submit">Подтвердить</button>
         </div>
 
 </form>
