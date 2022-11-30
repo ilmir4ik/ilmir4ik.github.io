@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Title</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <form action="" method="get" class="form-example">
+  <div class="form-example">
+    <label for="country">Введите страну:</label>
+    <input type="text" name="country" id="country" required>
+  </div>
+  <div class="form-example">
+    <label for="city">Введите город</label>
+    <input type="text" name="city" id="city" required>
+  </div>
+  <div class="form-example">
+    <label for="name">Введите название ресторана</label>
+    <input type="text" name="name" id="name" required>
+  </div>
+  <div>
+      <label for="date">Выберите дату бронирования</label>
+      <input type="date" name="date" id="date" required>
+  </div>
+  <div>
+      <label for="time">Введите время бронирования</label>
+      <input type="time" name="time" id="time" required>
+  </div>
+  <div class="form-example">
+    <input type="submit" value="Subscribe!">
+  </div>
+</form>
 </body>
 </html>
