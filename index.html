@@ -24,6 +24,12 @@
                 <label class="form-label">Введите название ресторана</label>
                 <input type="text" class="form-control" id="restaurant_name" required>
             </div>
+
+            <div>
+                <label class="form-label">Ваш номер телефона</label>
+                <input class="form-control" name="phone" placeholder="+79123456789" type="tel">
+            </div>
+
             <div class="">
                 <label>Сколько вас будет человек?</label>
                 <select class="form-select w-50" name="party_size" required>
@@ -61,8 +67,9 @@
             message += this.city.value + '\n';
             message += this.restaurant_name.value + '\n';
             message += this.party_size.value + '\n';
+            message += this.phone.value + '\n';
             message += this.date.value + '\n';
-            message += this.time.value + '\n';
+            message += this.time.value;
             console.log(message);
             Telegram.WebApp.sendData(message);
             Telegram.WebApp.close();
