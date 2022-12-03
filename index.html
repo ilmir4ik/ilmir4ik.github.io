@@ -10,63 +10,29 @@
     <div align="center" class="container col-md-4 mt-4 pb-4">
         <form id="tg">
             <div>
-                <label class="form-label">Введите страну</label>
-                <input type="text" class="form-control" id="country" required>
+                <label class="form-label">Введите город отправления</label>
+                <input type="text" class="form-control" id="departure_city" required>
             </div>
             <div>
-                <label class="form-label">Введите город</label>
-                <input type="text" class="form-control" id="city" required>
-            </div>
-            <div>
-                <label class="form-label">Введите название ресторана</label>
-                <input type="text" class="form-control" id="restaurant_name" required>
-            </div>
-
-            <div>
-                <label class="form-label">Ваш номер телефона</label>
-                <input class="form-control" name="phone" placeholder="+79123456789" type="tel">
-            </div>
-
-            <div class="">
-                <label>Сколько вас будет человек?</label>
-                <select class="form-select w-50" name="party_size" required>
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
-                    <option value=4>4</option>
-                    <option value=5>5</option>
-                    <option value=6>6</option>
-                    <option value=7>7</option>
-                    <option value=8>8</option>
-                </select>
+                <label class="form-label">Введите город назначения</label>
+                <input type="text" class="form-control" id="destination_city" required>
             </div>
             <div>
                 <label class="form-label">Выберите дату бронирования</label>
                 <input class="form-control w-50" type="date" name="date" id="date" required>
             </div>
             <div>
-                <label class="form-label">Введите время бронирования</label>
-                <input class="form-control w-50" type="time" name="time" id="time" required>
+                <button class="btn btn-primary w-50 mt-4" type="submit">Поиск</button>
             </div>
-            <div>
-                <button class="btn btn-primary w-50 mt-4" type="submit">Подтвердить</button>
-            </div>
-
     </form>
     </div>
     <script>
-        let init_data = Telegram.WebApp.initDataUnsafe || {};
-
         document.getElementById('tg').addEventListener('submit', function (e){
             e.preventDefault();
             let message = '';
-            message += this.country.value + '\n';
-            message += this.city.value + '\n';
-            message += this.restaurant_name.value + '\n';
-            message += this.party_size.value + '\n';
-            message += this.phone.value + '\n';
+            message += this.departure_city.value + '\n';
+            message += this.destination_city.value + '\n';
             message += this.date.value + '\n';
-            message += this.time.value;
             console.log(message);
             Telegram.WebApp.sendData(message);
             Telegram.WebApp.close();
