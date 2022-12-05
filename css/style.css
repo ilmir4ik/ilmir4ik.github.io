@@ -236,3 +236,32 @@ body {
         flex-direction: column;
     }
 }
+
+.close-button {
+    align-items: end;
+    border: none;
+    background-color: #FFF;
+    width: 32px;
+    height: 32px;
+    justify-content: flex-end;
+}
+
+.close-button:hover {
+    background-color: #cccbcb;
+}
+
+.close-button img {
+    width: 32px;
+    height: 32px;
+}
+
+.passenger-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.contact-container {
+    padding: 10px;
+}
