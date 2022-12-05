@@ -34,15 +34,15 @@
                         <div class="passenger-info">
                             <div class="input-block">
                                 <div class="input-title">Фамилия<span class="red-text">*</span></div>
-                                <input x-moz-errormessage="Это поле обязательное" required type="text" class="input-form">
+                                <input x-moz-errormessage="Это поле обязательное" id="surname" required type="text" class="input-form">
                             </div>
                             <div class="input-block">
                                 <div class="input-title">Имя<span class="red-text">*</span></div>
-                                <input required type="text" class="input-form">
+                                <input required type="text" id="name" class="input-form">
                             </div>
                             <div class="input-block">
                                 <div class="input-title">Отчество<span class="red-text">*</span></div>
-                                <input required type="text" class="input-form">
+                                <input required type="text" id="middlename" class="input-form">
                             </div>
                         </div>
                     </div>
@@ -62,15 +62,15 @@
                                 <div class="messenger-checkbox">
                                     <div class="check">
                                         <img src="./images/telegram.svg" alt="messenger">
-                                        <input type="checkbox" class="check-telegram">
+                                        <input name="telegram_check" type="checkbox" class="check-telegram">
                                     </div>
                                     <div class="check">
                                         <img src="./images/whatsapp.svg" alt="messenger">
-                                        <input type="checkbox" class="check-telegram">
+                                        <input name="whatsapp_check" type="checkbox" class="check-telegram">
                                     </div>
                                     <div class="check">
                                         <img src="./images/viber.svg" alt="messenger">
-                                        <input type="checkbox" class="check-telegram">
+                                        <input name="viber_check" type="checkbox" class="check-telegram">
                                     </div>
                                 </div>
                             </div>
@@ -93,15 +93,26 @@
 <script>
     document.getElementById('tg').addEventListener('submit', function (e){
         e.preventDefault();
-        let message = '';
-        message += this.country.value + '\n';
-        message += this.city.value + '\n';
-        message += this.restaurant_name.value + '\n';
-        message += this.party_size.value + '\n';
-        message += this.phone.value + '\n';
-        message += this.date.value + '\n';
-        message += this.time.value;
-        console.log(message);
+        passengers = document.querySelectorAll('.passenger-container');
+        message = '';
+        for (let i = 0; i < passengers.length; i++) {
+            pass_info = passengers[i].querySelector('.passenger-info');
+
+            surname = pass_info.children[0].children['surname'].value;
+            name = pass_info.children[1].children['name'].value;
+            middlename = pass_info.children[2].children['middlename'].value;
+            message += surname + ' ' + name + ' ' + middlename + ';';
+        }
+        contacts = document.querySelector('.contact-inputs')
+        phone = this.phone.value;
+        email = this.email.value;
+        tg_check = this.telegram_check.checked.toString();
+        wapp_check = this.whatsapp_check.checked;
+        viber_check = this.viber_check.checked;
+        message += phone + ';';
+        message += email + ';';
+        message += tg_check + ';' + wapp_check + ';' + viber_check;
+        console.log(message)
         Telegram.WebApp.sendData(message);
         Telegram.WebApp.close();
     })
