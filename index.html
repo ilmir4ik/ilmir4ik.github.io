@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="js/index.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<a href="first.html"></a>
+<div class="site-wrapper">
+    <div class="container">
+        <div class="site-body">
+            <div class="passengers-info block">
+                <div class="info-title title">
+                    <h4>Информация о пассажирах</h4>
+                </div>
+                <div class="info-content">
+                    <p>Заполняйте данные в строгом соответствии с документом удостоверяющим личность. Посадка на рейс
+                        производится с проверкой документов.</p>
+                </div>
+            </div>
+            <form action="" id="tg">
+                <div class="passengers block">
+                    <div class="passenger-container">
+                        <div class="passenger-section">
+                            <div class="passenger-number">Пассажир № 1</div>
+                            <div class="passenger-add">
+                                <button type="button" class="add-button button-blue">Добавить пассажира</button>
+                            </div>
+                        </div>
+                        <div class="passenger-info">
+                            <div class="input-block">
+                                <div class="input-title">Фамилия<span class="red-text">*</span></div>
+                                <input x-moz-errormessage="Это поле обязательное" required type="text" class="input-form">
+                            </div>
+                            <div class="input-block">
+                                <div class="input-title">Имя<span class="red-text">*</span></div>
+                                <input required type="text" class="input-form">
+                            </div>
+                            <div class="input-block">
+                                <div class="input-title">Отчество<span class="red-text">*</span></div>
+                                <input required type="text" class="input-form">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contacts block">
+                    <div class="contact-title title">
+                        Контактные данные
+                    </div>
+                    <div class="contact-content">Укажите корректный номер телефона. На него будут отправлены данные по
+                        рейсу, а так же для связи с диспетчером.
+                    </div>
+                    <div class="contact-inputs">
+                        <div class="input-block">
+                            <div class="input-title">Телефон<span class="red-text">*</span></div>
+                            <div class="input-checkbox phone-check">
+                                <input name="phone" required type="text" class="input-form">
+                                <div class="messenger-checkbox">
+                                    <div class="check">
+                                        <img src="./images/telegram.svg" alt="messenger">
+                                        <input type="checkbox" class="check-telegram">
+                                    </div>
+                                    <div class="check">
+                                        <img src="./images/whatsapp.svg" alt="messenger">
+                                        <input type="checkbox" class="check-telegram">
+                                    </div>
+                                    <div class="check">
+                                        <img src="./images/viber.svg" alt="messenger">
+                                        <input type="checkbox" class="check-telegram">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-block">
+                            <div class="input-title">E-mail (не обязательно)</div>
+                            <label>
+                                <input name="email" type="text" class="input-form">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit-button">
+                    <button type="submit" class="button-blue">Забронировать</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById('tg').addEventListener('submit', function (e){
+        e.preventDefault();
+        let message = '';
+        message += this.country.value + '\n';
+        message += this.city.value + '\n';
+        message += this.restaurant_name.value + '\n';
+        message += this.party_size.value + '\n';
+        message += this.phone.value + '\n';
+        message += this.date.value + '\n';
+        message += this.time.value;
+        console.log(message);
+        Telegram.WebApp.sendData(message);
+        Telegram.WebApp.close();
+    })
+</script>
+</body>
+</html>
